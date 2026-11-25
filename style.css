@@ -1,0 +1,714 @@
+/* ==========================================================================
+   Body Scent — site-wide theme
+   Premium, minimal. Ivory / cream / deep beige with a soft bronze accent.
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Serif+Thai:wght@300;400;500;600&family=Noto+Sans+Thai:wght@300;400;500&display=swap");
+
+/* --------------------------------------------------------------------------
+   1. Design tokens
+   -------------------------------------------------------------------------- */
+:root {
+  /* Base palette */
+  --ivory: #fbf8f2;
+  --cream: #f3ece0;
+  --sand: #e6dac6;
+  --beige-deep: #8b7355;
+  --ink: #2b2620;
+  --ink-soft: #5e564a;
+
+  /* Accent: soft bronze / gold */
+  --gold: #a98a57;
+  --gold-deep: #8a6d3e;
+
+  /* Lines */
+  --line: rgba(43, 38, 32, 0.28);
+  --line-soft: rgba(43, 38, 32, 0.14);
+
+  /* Mood colours — used only as small touches (dots, short rules, icons) */
+  --mood-fresh: #2f5d50;
+  --mood-sweet: #7b5ea7;
+  --mood-confident: #3e4c5e;
+  --mood-romance: #b5545a;
+
+  /* Type */
+  --font-display: "Cormorant Garamond", "Noto Serif Thai", Georgia, "Times New Roman", serif;
+  --font-serif: "Noto Serif Thai", "Cormorant Garamond", Georgia, serif;
+  --font-body: "Noto Sans Thai", "Sarabun", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Type scale */
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.1875rem;
+  --text-xl: 1.5rem;
+  --text-2xl: clamp(1.75rem, 3vw, 2.25rem);
+  --text-3xl: clamp(2.25rem, 5vw, 3.5rem);
+  --text-hero: clamp(2.75rem, 7vw, 5.25rem);
+
+  /* Spacing */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: 6rem;
+  --section-pad: clamp(4.5rem, 10vw, 9rem);
+
+  --container: 1120px;
+  --radius: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset & base
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--ivory);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 300;
+  line-height: 1.85;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 0.3em;
+  text-decoration-thickness: 1px;
+}
+
+a:hover {
+  color: var(--gold-deep);
+}
+
+p {
+  margin: 0 0 var(--space-3);
+  max-width: 62ch;
+  color: var(--ink-soft);
+}
+
+:focus-visible {
+  outline: 1px solid var(--gold-deep);
+  outline-offset: 4px;
+}
+
+::selection {
+  background: var(--sand);
+  color: var(--ink);
+}
+
+/* --------------------------------------------------------------------------
+   3. Typography
+   -------------------------------------------------------------------------- */
+h1,
+h2,
+h3,
+h4 {
+  margin: 0 0 var(--space-3);
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.35;
+}
+
+h1 {
+  font-size: var(--text-hero);
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: var(--text-3xl);
+}
+
+h3 {
+  font-size: var(--text-xl);
+}
+
+h4 {
+  font-size: var(--text-lg);
+}
+
+.lead {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  font-weight: 300;
+  line-height: 2;
+  color: var(--ink-soft);
+}
+
+.price {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.meta {
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+}
+
+/* --------------------------------------------------------------------------
+   4. Layout
+   -------------------------------------------------------------------------- */
+.container {
+  width: min(100% - 3rem, var(--container));
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: var(--section-pad);
+}
+
+.section--cream {
+  background: var(--cream);
+}
+
+.section--sand {
+  background: var(--sand);
+}
+
+.section-head {
+  margin-bottom: var(--space-5);
+}
+
+.section-head p {
+  margin-bottom: 0;
+}
+
+.section-head--center {
+  text-align: center;
+}
+
+.section-head--center p {
+  margin-inline: auto;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid var(--line-soft);
+  margin: var(--space-5) 0;
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.grid--2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.stack > * + * {
+  margin-top: var(--space-3);
+}
+
+/* --------------------------------------------------------------------------
+   5. Header & footer
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(251, 248, 242, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-block: 1.25rem;
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav a {
+  text-decoration: none;
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+  padding-block: 0.25rem;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.nav a:hover,
+.nav a[aria-current="page"] {
+  color: var(--ink);
+  border-bottom-color: var(--gold);
+}
+
+.site-footer {
+  padding-block: var(--space-5);
+  border-top: 1px solid var(--line-soft);
+  background: var(--cream);
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+}
+
+.site-footer p {
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-1);
+}
+
+/* --------------------------------------------------------------------------
+   6. Hero
+   -------------------------------------------------------------------------- */
+.hero {
+  padding-block: clamp(5rem, 14vw, 11rem);
+  background: linear-gradient(180deg, var(--ivory) 0%, var(--cream) 100%);
+}
+
+.hero h1 {
+  max-width: 14ch;
+  margin-bottom: var(--space-4);
+}
+
+.hero .lead {
+  max-width: 46ch;
+  margin-bottom: var(--space-5);
+}
+
+/* --------------------------------------------------------------------------
+   7. Buttons — thin line, soft dark
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-block;
+  padding: 0.9rem 2.5rem;
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 400;
+  line-height: 1.6;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.btn:hover {
+  background: var(--ink);
+  color: var(--ivory);
+}
+
+.btn--gold {
+  border-color: var(--gold-deep);
+  color: var(--gold-deep);
+}
+
+.btn--gold:hover {
+  background: var(--gold-deep);
+  border-color: var(--gold-deep);
+  color: var(--ivory);
+}
+
+.btn--block {
+  display: block;
+  width: 100%;
+}
+
+.btn[disabled],
+.btn[aria-disabled="true"] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Filter / mood tabs */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+}
+
+.filter-btn {
+  padding: 0.55rem 1.5rem;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--ink-soft);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 300;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--gold-deep);
+  color: var(--ink);
+}
+
+.filter-btn[aria-pressed="true"],
+.filter-btn.is-active {
+  border-color: var(--ink);
+  color: var(--ink);
+  background: var(--cream);
+}
+
+/* --------------------------------------------------------------------------
+   8. Mood accents — small touches only
+   Add a mood class (.mood-fresh etc.) to a card or section; the colour then
+   appears only on .mood-dot and .mood-rule, never as a background.
+   -------------------------------------------------------------------------- */
+.mood-fresh { --mood: var(--mood-fresh); }
+.mood-sweet { --mood: var(--mood-sweet); }
+.mood-confident { --mood: var(--mood-confident); }
+.mood-romance { --mood: var(--mood-romance); }
+
+.mood-dot {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--mood, var(--gold));
+  vertical-align: middle;
+  margin-right: 0.6rem;
+}
+
+/* Short line under a heading */
+.mood-rule {
+  display: block;
+  width: 2.5rem;
+  height: 2px;
+  margin: var(--space-2) 0 var(--space-3);
+  background: var(--mood, var(--gold));
+  border: 0;
+}
+
+.section-head--center .mood-rule {
+  margin-inline: auto;
+}
+
+/* Small mood icon (inline SVG or span using currentColor) */
+.mood-icon {
+  color: var(--mood, var(--gold));
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   9. Product cards
+   -------------------------------------------------------------------------- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--space-4);
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  transition: border-color 0.25s ease;
+}
+
+.product-card:hover {
+  border-color: var(--gold);
+}
+
+.product-card__image {
+  aspect-ratio: 4 / 5;
+  width: 100%;
+  object-fit: cover;
+  background: var(--cream);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.product-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: var(--space-3);
+}
+
+.product-card__mood {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--space-1);
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+}
+
+.product-card__name {
+  margin-bottom: var(--space-1);
+  font-size: var(--text-lg);
+}
+
+.product-card__desc {
+  flex: 1;
+  margin-bottom: var(--space-3);
+  font-size: var(--text-sm);
+  line-height: 1.8;
+}
+
+.product-card__foot {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--line-soft);
+}
+
+.product-card__size {
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+}
+
+/* --------------------------------------------------------------------------
+   10. Forms (order form)
+   -------------------------------------------------------------------------- */
+.form {
+  display: grid;
+  gap: var(--space-3);
+  max-width: 560px;
+}
+
+.field {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.field label {
+  font-size: var(--text-sm);
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.input,
+.textarea,
+.select {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: var(--ivory);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 300;
+  line-height: 1.6;
+  transition: border-color 0.2s ease;
+}
+
+.textarea {
+  min-height: 7rem;
+  resize: vertical;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: rgba(94, 86, 74, 0.6);
+}
+
+.input:hover,
+.textarea:hover,
+.select:hover {
+  border-color: var(--beige-deep);
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus {
+  outline: none;
+  border-color: var(--gold-deep);
+}
+
+.form-message {
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--line);
+  border-left: 2px solid var(--gold);
+  border-radius: var(--radius);
+  background: var(--cream);
+  font-size: var(--text-sm);
+  color: var(--ink);
+}
+
+.form-message--error {
+  border-left-color: var(--mood-romance);
+}
+
+/* Order summary / cart lines */
+.summary {
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  background: var(--cream);
+}
+
+.summary__row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding-block: var(--space-1);
+  border-bottom: 1px solid var(--line-soft);
+  font-size: var(--text-sm);
+}
+
+.summary__row:last-child {
+  border-bottom: 0;
+}
+
+.summary__total {
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--line);
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   11. Utilities
+   -------------------------------------------------------------------------- */
+.text-center { text-align: center; }
+.text-gold { color: var(--gold-deep); }
+.mt-0 { margin-top: 0; }
+.mb-0 { margin-bottom: 0; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --------------------------------------------------------------------------
+   12. Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 960px) {
+  .grid--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid--3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  :root {
+    --space-4: 2rem;
+    --space-5: 3rem;
+  }
+
+  .container {
+    width: min(100% - 2.5rem, var(--container));
+  }
+
+  .grid--2,
+  .grid--3,
+  .grid--4 {
+    grid-template-columns: 1fr;
+  }
+
+  .site-header .container {
+    flex-wrap: wrap;
+    padding-block: 1rem;
+  }
+
+  .nav {
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+
+  .hero h1 {
+    max-width: none;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: var(--space-3);
+  }
+
+  .btn {
+    padding-inline: 2rem;
+  }
+
+  .filters {
+    gap: var(--space-1);
+  }
+}
+
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .btn--mobile-block {
+    display: block;
+    width: 100%;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   13. Reduced motion
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
